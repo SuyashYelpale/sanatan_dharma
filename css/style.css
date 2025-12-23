@@ -1,0 +1,729 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  color: #2c3e50;
+  background: #f8f9fa;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.nav-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.nav-menu li {
+  display: inline-flex;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+  padding-bottom: 4px;
+}
+
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  transition: width 0.3s;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+.btn-donate-nav {
+  text-decoration: none;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+  transition: all 0.3s;
+}
+
+.btn-donate-nav:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 107, 53, 0.6);
+}
+
+/* Slider */
+.slider-wrapper {
+  margin-top: 80px;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  border-bottom: 3px solid #ff6b35;
+  padding: 20px 0;
+}
+
+.slider {
+  display: flex;
+  width: max-content;
+  animation: slide-left 35s linear infinite;
+}
+
+.slide-item {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 140px;
+  margin: 0 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  transition: all 0.3s;
+}
+
+.slide-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-item:hover {
+  transform: scale(1.05) translateY(-4px);
+}
+
+.slider-wrapper:hover .slider {
+  animation-play-state: paused;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url("../images/hero-temple.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.sanskrit-hero {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-num {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ff6b35;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+.btn-donate,
+.btn-secondary {
+  display: inline-block;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.btn-donate {
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: #fff;
+  padding: 15px 32px;
+  box-shadow: 0 8px 30px rgba(255, 107, 53, 0.6);
+  border: none;
+}
+
+.btn-donate.btn-large {
+  padding: 18px 40px;
+  font-size: 1.1rem;
+}
+
+.btn-donate:hover {
+  transform: translateY(-3px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 15px 32px;
+}
+
+.btn-secondary:hover {
+  background: #fff;
+  color: #2c3e50;
+}
+
+/* Sections common */
+.section {
+  padding: 90px 0;
+}
+
+.section-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-intro {
+  max-width: 800px;
+  margin: 0.5rem auto 2.5rem;
+  text-align: center;
+  font-size: 1.05rem;
+  color: #555;
+}
+
+/* Mission */
+.mission-section {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  text-align: center;
+}
+
+.sanskrit-quote {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.mission-text {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  font-size: 1.2rem;
+}
+
+/* Vision box */
+.vision-box {
+  margin: 0 auto;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 1.8rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.vision-box h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1.5rem;
+}
+
+.vision-box p {
+  margin-bottom: 0.4rem;
+}
+
+/* Donation */
+.donate-section {
+  background: #fff;
+}
+
+.donation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.donation-card {
+  background: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s;
+  border: 3px solid transparent;
+}
+
+.donation-card.featured {
+  border-color: #ff6b35;
+  transform: scale(1.03);
+}
+
+.donation-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+}
+
+.donation-icon {
+  font-size: 3rem;
+  margin-bottom: 0.8rem;
+}
+
+.donation-card h3 {
+  font-size: 2.2rem;
+  color: #ff6b35;
+  margin-bottom: 0.3rem;
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.payment-methods img {
+  height: 200px;
+  filter: grayscale(0.5);
+  transition: filter 0.3s;
+}
+
+.payment-methods img:hover {
+  filter: grayscale(0);
+}
+
+/* Projects */
+.projects-section {
+  background: #f5f6fa;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+.project-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.project-card h3 {
+  padding: 1.5rem 1.5rem 0.5rem;
+  font-size: 1.4rem;
+}
+
+.project-card p {
+  padding: 0 1.5rem 1.5rem;
+  color: #555;
+}
+
+/* NEW: Events */
+.events-section {
+  background: #fff;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.event-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.8rem 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.event-card h3 {
+  margin-bottom: 0.8rem;
+}
+
+.event-card ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  color: #555;
+}
+
+/* NEW: Initiatives */
+.initiatives-section {
+  background: #f5f6fa;
+}
+
+.initiatives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.initiative-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.8rem 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.initiative-card h3 {
+  margin-bottom: 0.8rem;
+}
+
+.initiative-card ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  color: #555;
+}
+
+/* NEW: Shop */
+.shop-section {
+  background: #fff;
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.shop-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.8rem 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.shop-card h3 {
+  margin-bottom: 0.8rem;
+}
+
+.shop-card ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  color: #555;
+}
+
+/* NEW: Puja & Astro */
+.puja-section {
+  background: #f5f6fa;
+}
+
+.puja-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.puja-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.8rem 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.puja-card h3 {
+  margin-bottom: 0.8rem;
+}
+
+.puja-card ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  color: #555;
+}
+
+/* Impact */
+.impact-section {
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+}
+
+.sanskrit-quote-large {
+  text-align: center;
+  font-size: 3.2rem;
+  margin: 1.5rem 0 3rem;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2.5rem;
+  text-align: center;
+}
+
+.impact-number {
+  font-size: 3rem;
+  color: #ff6b35;
+  font-weight: 700;
+}
+
+/* Contact */
+.contact-section {
+  background: #fff;
+}
+
+.contact-text {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 2px solid #e0e4ea;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #ff6b35;
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: #fff;
+  padding: 3rem 0 2rem;
+  margin-top: 2rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: 0.8rem;
+  color: #ff6b35;
+}
+
+.footer-section a {
+  display: block;
+  text-decoration: none;
+  color: #bdc3c7;
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+}
+
+.footer-section a:hover {
+  color: #ff6b35;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #3b4b5c;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 18px;
+  width: 90%;
+  max-width: 480px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #888;
+}
+
+.donation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.donation-form input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 2px solid #e0e4ea;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.donation-form input:focus {
+  outline: none;
+  border-color: #ff6b35;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero-stats {
+    gap: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none; /* simple desktop-only menu for now */
+  }
+
+  .slider-wrapper {
+    margin-top: 80px;
+  }
+
+  .slide-item {
+    width: 160px;
+    height: 110px;
+    margin: 0 14px;
+  }
+
+  .hero {
+    padding-top: 40px;
+  }
+
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .section-title {
+    font-size: 2.4rem;
+  }
+}
