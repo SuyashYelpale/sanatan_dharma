@@ -109,13 +109,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Simple contact form handler (no backend)
-  const contactForm = document.querySelector(".contact-form");
-  if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
+// Contact form: basic validation, let FormSubmit handle email
+const contactForm = document.querySelector(".contact-form");
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    const name = contactForm.elements["name"].value.trim();
+    const email = contactForm.elements["email"].value.trim();
+    const message = contactForm.elements["message"].value.trim();
+
+    if (!name || !email || !message) {
       e.preventDefault();
-      alert("Thank you for contacting us. We will reach out soon.");
-      contactForm.reset();
-    });
-  }
+      alert("Please fill all fields before sending.");
+      return;
+    }
+    // if valid -> do NOT preventDefault; form submits to FormSubmit
+  });
+}
+
+// Show popup when redirected back with ?success=1
+const params = new URLSearchParams(window.location.search);
+if (params.get("success") === "1") {
+  alert("Your message has been sent successfully. Thank you!");
+}
+
+
 });
