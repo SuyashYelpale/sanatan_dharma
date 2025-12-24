@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanatan_Dharma_🚩</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span>Sanatan Dharma NGO</span>
+      </div>
+
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="ourprograms.html">Our Programs</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <a href="donation.html" class="btn-donate-nav">Donate Now ॐ</a>
+    </div>
+  </nav>
+
+  <main style="margin-top: 80px;">
+    <!-- Donation -->
+    <section id="donate" class="section donate-section">
+      <div class="container">
+        <h2 class="section-title">Support with Your Seva</h2>
+
+        <div class="donation-grid">
+          <div class="donation-card">
+            <div class="donation-icon">🕉️</div>
+            <h3>₹101</h3>
+            <p>Daily Puja</p>
+            <button class="btn-donate" data-amount="101">Donate</button>
+          </div>
+
+          <div class="donation-card featured">
+            <div class="donation-icon">🪔</div>
+            <h3>₹501</h3>
+            <p>Temple Lamp</p>
+            <button class="btn-donate" data-amount="501">Donate</button>
+          </div>
+
+          <div class="donation-card">
+            <div class="donation-icon">📜</div>
+            <h3>₹1100</h3>
+            <p>Scripture Gift</p>
+            <button class="btn-donate" data-amount="1100">Donate</button>
+          </div>
+
+          <div class="donation-card">
+            <div class="donation-icon">🐄</div>
+            <h3>₹5100</h3>
+            <p>Gau Seva</p>
+            <button class="btn-donate" data-amount="5100">Donate</button>
+          </div>
+        </div>
+
+        <div class="payment-methods">
+          <img src="images/razorpay-logo.png" alt="Razorpay" />
+          <img src="images/paypal-logo.png" alt="PayPal" />
+          <img src="images/scanner.jpeg" alt="UPI" />
+          <img src="images/bank-logo.png" alt="Bank Transfer" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Donation Modal (same as index.html) -->
+    <div id="donateModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Complete Your Donation</h2>
+        <form class="donation-form">
+          <input type="number" id="customAmount" placeholder="Amount (₹)" required />
+          <input type="text" placeholder="Full Name" required />
+          <input type="email" placeholder="Email" required />
+          <input type="tel" placeholder="Phone" required />
+          <button type="submit" class="btn-donate">Pay Securely</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

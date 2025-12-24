@@ -64,8 +64,10 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   white-space: nowrap;
+  margin-right: 40px;
+  margin-left: auto;
 }
 
 .nav-menu li {
@@ -96,6 +98,13 @@ body {
 .nav-menu a:hover::after {
   width: 100%;
 }
+
+.nav-menu a.active-link,
+.btn-donate-nav.active-link {
+  color: #ff6b35;
+}
+
+
 
 .btn-donate-nav {
   text-decoration: none;
