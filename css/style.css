@@ -83,7 +83,6 @@ body {
   padding-bottom: 4px;
 }
 
-
 .nav-menu a::after {
   content: "";
   position: absolute;
