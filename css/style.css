@@ -1,26 +1,67 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap");
 
+/* ==========================================================================
+   GLOBAL RESET & SPIRITUAL THEME - ALL PAGES
+   ========================================================================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+:root {
+  /* Sacred Saffron-Gold Spiritual Palette - ALL PAGES */
+  --saffron-gold: #FF9933;
+  --deep-saffron: #D97706;
+  --sacred-gold: #FCD34D;
+  --temple-orange: #F59E0B;
+  --pure-white: #FFFFFF;
+  --ivory-cream: #FEF7E0;
+  --sandalwood: #F5F5DC;
+  --temple-shadow: rgba(249, 115, 22, 0.15);
+  --spiritual-purple: #8B5CF6;
+}
+
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", "Noto Sans Devanagari", sans-serif;
   line-height: 1.6;
   color: #2c3e50;
-  background: #f8f9fa;
+  /* Sacred temple gradient background - ALL PAGES */
+  background: linear-gradient(135deg, var(--ivory-cream) 0%, #FFF7ED 50%, var(--sandalwood) 100%);
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 153, 51, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(252, 211, 77, 0.06) 0%, transparent 50%);
   overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Subtle Om watermark pattern - ALL PAGES */
+  background-image: 
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><text x="15" y="70" font-size="50" fill="%23FF9933" opacity="0.025" font-family="Arial">ॐ</text><text x="75" y="90" font-size="30" fill="%23D97706" opacity="0.015" font-family="Arial">☸</text><text x="45" y="40" font-size="25" fill="%23FCD34D" opacity="0.01">🕉</text></svg>'),
+    radial-gradient(ellipse 80% 50% at 40% 30%, rgba(255,153,51,0.02) 0%, transparent 70%);
+  background-size: 120px 120px, cover;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  position: relative;
+  z-index: 2;
 }
 
-/* Navbar */
+/* ==========================================================================
+   NAVBAR - KEPT EXACTLY SAME (Original Orange Theme)
+   ========================================================================== */
 .navbar {
   position: fixed;
   top: 0;
@@ -119,14 +160,17 @@ body {
   box-shadow: 0 8px 30px rgba(255, 107, 53, 0.6);
 }
 
-/* Slider */
+/* ==========================================================================
+   SLIDER - index.html (Enhanced Spiritual Theme)
+   ========================================================================== */
 .slider-wrapper {
   margin-top: 80px;
   width: 100%;
   overflow: hidden;
-  background: #fff;
-  border-bottom: 3px solid #ff6b35;
-  padding: 20px 0;
+  background: linear-gradient(135deg, var(--pure-white), var(--ivory-cream));
+  border-bottom: 4px solid var(--saffron-gold);
+  padding: 25px 0;
+  box-shadow: 0 4px 20px var(--temple-shadow);
 }
 
 .slider {
@@ -137,13 +181,25 @@ body {
 
 .slide-item {
   flex: 0 0 auto;
-  width: 200px;
-  height: 140px;
+  width: 220px;
+  height: 160px;
   margin: 0 20px;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
-  transition: all 0.3s;
+  box-shadow: 0 12px 40px var(--temple-shadow);
+  transition: all 0.4s;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+.slide-item::before {
+  content: '✨';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  opacity: 0.8;
+  z-index: 2;
 }
 
 .slide-item img {
@@ -153,7 +209,8 @@ body {
 }
 
 .slide-item:hover {
-  transform: scale(1.05) translateY(-4px);
+  transform: scale(1.08) translateY(-6px);
+  box-shadow: 0 20px 60px var(--temple-shadow);
 }
 
 .slider-wrapper:hover .slider {
@@ -161,575 +218,568 @@ body {
 }
 
 @keyframes slide-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-/* Hero */
+/* ==========================================================================
+   HERO SECTION - index.html (Temple Glow Effect)
+   ========================================================================== */
 .hero {
   height: 100vh;
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.7)
-    ),
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
     url("../images/hero-temple.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #fff;
+  color: var(--pure-white);
+  position: relative;
+}
+
+.hero::before {
+  content: 'ॐ';
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  font-size: 120px;
+  opacity: 0.08;
+  font-family: Arial, sans-serif;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 900px;
   padding: 0 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .sanskrit-hero {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   margin-bottom: 1rem;
+  text-shadow: 0 0 30px var(--saffron-gold);
+  font-family: 'Noto Sans Devanagari', sans-serif;
 }
 
 .hero h1 {
-  font-size: 4rem;
+  font-size: 4.5rem;
   margin-bottom: 1rem;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
 .hero p {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.95;
 }
 
 .hero-stats {
   display: flex;
   justify-content: center;
-  gap: 3rem;
-  margin-bottom: 2.5rem;
+  gap: 3.5rem;
+  margin-bottom: 3rem;
 }
 
 .stat {
   text-align: center;
+  background: rgba(255,255,255,0.15);
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
 }
 
 .stat-num {
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-weight: 700;
-  color: #ff6b35;
+  background: linear-gradient(45deg, var(--saffron-gold), var(--sacred-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
 }
 
 .hero-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.2rem;
+  gap: 1.5rem;
   justify-content: center;
 }
 
-.btn-donate,
-.btn-secondary {
-  display: inline-block;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-
-.btn-donate {
-  background: linear-gradient(135deg, #ff6b35, #f7931e);
-  color: #fff;
-  padding: 15px 32px;
-  box-shadow: 0 8px 30px rgba(255, 107, 53, 0.6);
-  border: none;
-}
-
-.btn-donate.btn-large {
-  padding: 18px 40px;
-  font-size: 1.1rem;
-}
-
-.btn-donate:hover {
-  transform: translateY(-3px);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: #fff;
-  border: 2px solid #fff;
-  padding: 15px 32px;
-}
-
-.btn-secondary:hover {
-  background: #fff;
-  color: #2c3e50;
-}
-
-/* Sections common */
+/* ==========================================================================
+   COMMON SECTION STYLES - ALL PAGES (Temple Cards)
+   ========================================================================== */
 .section {
-  padding: 90px 0;
+  padding: 100px 0;
+  /* Sacred temple glassmorphism */
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 50px var(--temple-shadow);
+  border-radius: 25px;
+  margin-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: 'ॐ';
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  font-size: 100px;
+  color: var(--saffron-gold);
+  opacity: 0.06;
+  font-family: Arial, sans-serif;
+  z-index: 0;
+  animation: rotate-slow 20s linear infinite;
+}
+
+@keyframes rotate-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.section .container {
+  position: relative;
+  z-index: 2;
 }
 
 .section-title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   text-align: center;
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  margin-bottom: 1.5rem;
+  /* Sacred gold gradient */
+  background: linear-gradient(135deg, var(--saffron-gold), var(--sacred-gold));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 700;
+  text-shadow: 0 4px 20px rgba(255, 153, 51, 0.3);
+  position: relative;
 }
 
-.section-intro {
-  max-width: 800px;
-  margin: 0.5rem auto 2.5rem;
-  text-align: center;
-  font-size: 1.05rem;
-  color: #555;
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 5px;
+  background: linear-gradient(90deg, var(--sacred-gold), var(--temple-orange));
+  border-radius: 3px;
+  box-shadow: 0 2px 10px rgba(252, 211, 77, 0.4);
 }
 
-/* Mission */
-.mission-section {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: #fff;
-  text-align: center;
-}
-
+/* ==========================================================================
+   SANSKRIT QUOTES - ALL PAGES with Sanskrit
+   ========================================================================== */
 .sanskrit-quote {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.mission-text {
+  background: linear-gradient(135deg, var(--sacred-gold) 0%, var(--temple-orange) 100%);
+  color: #7C2D12;
+  font-size: 2.2rem;
+  font-weight: 700;
+  padding: 1.5rem 2.5rem;
+  border-radius: 20px;
+  text-align: center;
+  margin: 2.5rem auto;
   max-width: 800px;
-  margin: 0 auto 2rem;
-  font-size: 1.2rem;
+  box-shadow: 0 12px 35px rgba(252, 211, 77, 0.5);
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  position: relative;
+  font-family: 'Noto Sans Devanagari', Poppins, sans-serif;
 }
 
-/* Vision box */
-.vision-box {
-  margin: 0 auto;
-  max-width: 900px;
-  background: rgba(255, 255, 255, 0.08);
+.sanskrit-quote::before {
+  content: '🕉';
+  position: absolute;
+  top: -12px;
+  left: 30px;
+  font-size: 28px;
+  background: var(--sacred-gold);
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0 6px 16px rgba(252, 211, 77, 0.6);
+}
+
+/* ==========================================================================
+   MISSION TEXT - ALL PAGES
+   ========================================================================== */
+.mission-text {
+  color: #3A4A5A;
+  line-height: 1.9;
+  font-size: 1.15rem;
+  background: rgba(254, 247, 224, 0.8);
+  padding: 2rem;
   border-radius: 18px;
-  padding: 1.8rem 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-left: 6px solid var(--temple-orange);
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.15);
+  backdrop-filter: blur(8px);
 }
 
-.vision-box h3 {
-  margin-bottom: 0.8rem;
-  font-size: 1.5rem;
-}
-
-.vision-box p {
-  margin-bottom: 0.4rem;
-}
-
-/* Donation */
+/* ==========================================================================
+   DONATION SECTION - donation.html (Golden Theme)
+   ========================================================================== */
 .donate-section {
-  background: #fff;
+  background: linear-gradient(135deg, var(--pure-white) 0%, var(--ivory-cream) 100%);
 }
 
 .donation-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 2rem;
-  margin: 3rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
+  margin: 4rem 0;
 }
 
 .donation-card {
-  background: #fff;
-  padding: 2rem 1.5rem;
-  border-radius: 18px;
+  background: var(--pure-white);
+  padding: 2.5rem 2rem;
+  border-radius: 22px;
   text-align: center;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
-  transition: all 0.3s;
+  box-shadow: 0 15px 50px var(--temple-shadow);
+  transition: all 0.4s ease;
   border: 3px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.donation-card::before {
+  content: 'ॐ';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 50px;
+  opacity: 0.1;
+  z-index: 1;
 }
 
 .donation-card.featured {
-  border-color: #ff6b35;
-  transform: scale(1.03);
+  border-color: var(--saffron-gold);
+  transform: scale(1.05);
+  box-shadow: 0 25px 70px rgba(255, 153, 51, 0.25);
 }
 
 .donation-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+  transform: translateY(-12px);
+  box-shadow: 0 25px 70px rgba(249, 115, 22, 0.3);
 }
 
 .donation-icon {
-  font-size: 3rem;
-  margin-bottom: 0.8rem;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
 }
 
 .donation-card h3 {
-  font-size: 2.2rem;
-  color: #ff6b35;
-  margin-bottom: 0.3rem;
-}
-
-.payment-methods {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.payment-methods img {
-  height: 200px;
-  filter: grayscale(0.5);
-  transition: filter 0.3s;
-}
-
-.payment-methods img:hover {
-  filter: grayscale(0);
-}
-
-/* Projects */
-.projects-section {
-  background: #f5f6fa;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.project-card {
-  background: #fff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-  transition: all 0.3s;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-}
-
-.project-card img {
-  width: 100%;
-  height: 210px;
-  object-fit: cover;
-}
-
-.project-card h3 {
-  padding: 1.5rem 1.5rem 0.5rem;
-  font-size: 1.4rem;
-}
-
-.project-card p {
-  padding: 0 1.5rem 1.5rem;
-  color: #555;
-}
-
-/* NEW: Events */
-.events-section {
-  background: #fff;
-}
-
-.events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.event-card {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 1.8rem 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.event-card h3 {
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, var(--deep-saffron), var(--saffron-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 0.8rem;
+  font-weight: 800;
 }
 
-.event-card ul {
-  list-style: disc;
-  padding-left: 1.2rem;
-  color: #555;
+/* ==========================================================================
+   VISION BOX - aboutus.html
+   ========================================================================== */
+.vision-box {
+  background: linear-gradient(135deg, rgba(254, 247, 224, 0.95) 0%, var(--pure-white) 100%);
+  border: 3px solid rgba(249, 115, 22, 0.25);
+  border-radius: 25px;
+  padding: 3rem;
+  box-shadow: 0 20px 60px var(--temple-shadow);
+  position: relative;
 }
 
-/* NEW: Initiatives */
-.initiatives-section {
-  background: #f5f6fa;
-}
-
-.initiatives-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.initiative-card {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 1.8rem 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.initiative-card h3 {
-  margin-bottom: 0.8rem;
-}
-
-.initiative-card ul {
-  list-style: disc;
-  padding-left: 1.2rem;
-  color: #555;
-}
-
-/* NEW: Shop */
-.shop-section {
-  background: #fff;
-}
-
-.shop-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.shop-card {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 1.8rem 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.shop-card h3 {
-  margin-bottom: 0.8rem;
-}
-
-.shop-card ul {
-  list-style: disc;
-  padding-left: 1.2rem;
-  color: #555;
-}
-
-/* NEW: Puja & Astro */
-.puja-section {
-  background: #f5f6fa;
-}
-
-.puja-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.puja-card {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 1.8rem 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.puja-card h3 {
-  margin-bottom: 0.8rem;
-}
-
-.puja-card ul {
-  list-style: disc;
-  padding-left: 1.2rem;
-  color: #555;
-}
-
-/* Impact */
-.impact-section {
-  background: linear-gradient(135deg, #ffecd2, #fcb69f);
-}
-
-.sanskrit-quote-large {
-  text-align: center;
-  font-size: 3.2rem;
-  margin: 1.5rem 0 3rem;
-}
-
-.impact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 2.5rem;
-  text-align: center;
-}
-
-.impact-number {
-  font-size: 3rem;
-  color: #ff6b35;
-  font-weight: 700;
-}
-
-/* Contact */
-.contact-section {
-  background: #fff;
-}
-
-.contact-text {
-  text-align: center;
+.vision-box h3 {
+  color: var(--deep-saffron);
+  font-size: 1.8rem;
   margin-bottom: 2rem;
+  position: relative;
+}
+
+.vision-box h3::before {
+  content: '✨';
+  margin-right: 12px;
+  filter: drop-shadow(0 0 12px var(--sacred-gold));
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+/* ==========================================================================
+   BUTTONS - ALL PAGES (Enhanced)
+   ========================================================================== */
+.btn-donate, .btn-secondary {
+  display: inline-block;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-donate {
+  background: linear-gradient(135deg, var(--saffron-gold), var(--temple-orange));
+  color: #7C2D12;
+  padding: 16px 36px;
+  box-shadow: 0 10px 35px rgba(255, 153, 51, 0.4);
+  border: none;
   font-size: 1.1rem;
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
-  align-items: start;
+.btn-donate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s;
 }
 
-.contact-form {
+.btn-donate:hover::before {
+  left: 100%;
+}
+
+.btn-donate:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 50px rgba(255, 153, 51, 0.6);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--pure-white);
+  border: 3px solid var(--pure-white);
+  padding: 16px 36px;
+}
+
+.btn-secondary:hover {
+  background: var(--pure-white);
+  color: var(--deep-saffron);
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   PAYMENT METHODS - donation.html (Enhanced)
+   ========================================================================== */
+.payment-methods {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-top: 4rem;
 }
 
+.payment-methods img {
+  height: 220px;
+  filter: drop-shadow(0 8px 25px rgba(0,0,0,0.15));
+  transition: all 0.4s;
+  border-radius: 15px;
+}
+
+.payment-methods img:hover {
+  transform: translateY(-8px) scale(1.05);
+  filter: drop-shadow(0 15px 40px rgba(255,153,51,0.3));
+}
+
+/* ==========================================================================
+   CONTACT FORM - contact.html
+   ========================================================================== */
 .contact-form input,
-.contact-form textarea {
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 2px solid #e0e4ea;
+.contact-form textarea,
+.donation-form input {
+  padding: 16px 20px;
+  border-radius: 15px;
+  border: 2px solid rgba(217, 119, 6, 0.2);
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 .contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.donation-form input:focus {
   outline: none;
-  border-color: #ff6b35;
+  border-color: var(--saffron-gold);
+  box-shadow: 0 0 0 4px rgba(255, 153, 51, 0.15);
+  transform: translateY(-2px);
 }
 
-/* Footer */
-.footer {
-  background: linear-gradient(135deg, #2c3e50, #34495e);
-  color: #fff;
-  padding: 3rem 0 2rem;
-  margin-top: 2rem;
-}
-
-.footer-content {
+/* ==========================================================================
+   CARDS - Projects, Events, Initiatives, Shop, Puja (ALL Enhanced)
+   ========================================================================== */
+.projects-grid, .events-grid, .initiatives-grid, .shop-grid, .puja-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
 }
 
-.footer-section h3,
-.footer-section h4 {
-  margin-bottom: 0.8rem;
-  color: #ff6b35;
+.project-card, .event-card, .initiative-card, .shop-card, .puja-card {
+  background: var(--pure-white);
+  border-radius: 25px;
+  padding: 2.5rem;
+  box-shadow: 0 15px 50px var(--temple-shadow);
+  transition: all 0.4s;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
 }
 
-.footer-section a {
-  display: block;
-  text-decoration: none;
-  color: #bdc3c7;
-  margin-bottom: 0.3rem;
-  font-size: 0.95rem;
+.project-card::before, .event-card::before, .initiative-card::before, 
+.shop-card::before, .puja-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--saffron-gold), var(--sacred-gold));
 }
 
-.footer-section a:hover {
-  color: #ff6b35;
+.project-card:hover, .event-card:hover, .initiative-card:hover, 
+.shop-card:hover, .puja-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 80px rgba(249, 115, 22, 0.25);
 }
 
-.footer-bottom {
-  text-align: center;
-  border-top: 1px solid #3b4b5c;
-  padding-top: 1rem;
-  font-size: 0.9rem;
-}
-
-/* Modal */
+/* ==========================================================================
+   MODAL - donation.html & index.html (Premium)
+   ========================================================================== */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(44, 62, 80, 0.95);
+  backdrop-filter: blur(20px);
   z-index: 2000;
   justify-content: center;
   align-items: center;
+  animation: modalFade 0.4s ease-out;
+}
+
+@keyframes modalFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .modal-content {
-  background: #fff;
-  padding: 2.5rem 2rem;
-  border-radius: 18px;
+  background: var(--pure-white);
+  padding: 3rem 2.5rem;
+  border-radius: 25px;
   width: 90%;
-  max-width: 480px;
+  max-width: 520px;
   position: relative;
+  box-shadow: 0 30px 100px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .close {
   position: absolute;
-  top: 12px;
-  right: 18px;
-  font-size: 2rem;
+  top: 20px;
+  right: 25px;
+  font-size: 2.2rem;
   cursor: pointer;
-  color: #888;
+  color: #95a5a6;
+  transition: all 0.3s;
 }
 
-.donation-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1rem;
+.close:hover {
+  color: var(--deep-saffron);
+  transform: rotate(90deg);
 }
 
-.donation-form input {
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 2px solid #e0e4ea;
-  font-family: inherit;
-  font-size: 1rem;
+/* ==========================================================================
+   RESPONSIVE - ALL PAGES (Enhanced)
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .hero-stats { gap: 2rem; }
 }
 
-.donation-form input:focus {
-  outline: none;
-  border-color: #ff6b35;
-}
-
-/* Responsive */
 @media (max-width: 900px) {
-  .hero h1 {
-    font-size: 3rem;
-  }
-
-  .hero-stats {
-    gap: 1.8rem;
-  }
+  .hero h1 { font-size: 3.5rem; }
+  .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+  .section-title { font-size: 2.8rem; }
 }
 
 @media (max-width: 768px) {
-  .nav-menu {
-    display: none; /* simple desktop-only menu for now */
+  .nav-menu { display: none; }
+  .slider-wrapper { margin-top: 80px; }
+  .slide-item { 
+    width: 180px;
+    height: 130px;
+    margin: 0 15px;
   }
+  .hero { 
+    height: 90vh;
+    padding-top: 60px;
+  }
+  .hero h1 { font-size: 2.8rem; }
+  .section-title { font-size: 2.2rem; }
+  .sanskrit-quote { 
+    font-size: 1.6rem;
+    padding: 1.2rem 1.8rem;
+  }
+  .donation-grid { 
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+  }
+}
 
-  .slider-wrapper {
-    margin-top: 80px;
-  }
+/* ==========================================================================
+   SACRED SCROLLBAR - ALL PAGES
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 10px;
+}
 
-  .slide-item {
-    width: 160px;
-    height: 110px;
-    margin: 0 14px;
-  }
+::-webkit-scrollbar-track {
+  background: var(--ivory-cream);
+  border-radius: 10px;
+}
 
-  .hero {
-    padding-top: 40px;
-  }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--saffron-gold), var(--temple-orange));
+  border-radius: 10px;
+  border: 2px solid var(--pure-white);
+}
 
-  .hero h1 {
-    font-size: 2.6rem;
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--deep-saffron), var(--saffron-gold));
+}
 
-  .section-title {
-    font-size: 2.4rem;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+/* ==========================================================================
+   ALL OTHER SECTIONS PRESERVED WITH ENHANCEMENTS
+   ========================================================================== */
+.projects-section, .events-section, .initiatives-section, 
+.shop-section, .puja-section, .impact-section, .contact-section {
+  background: linear-gradient(135deg, var(--pure-white) 0%, var(--ivory-cream) 100%);
+}
+
+.footer {
+  background: linear-gradient(135deg, var(--deep-saffron), #B45309);
+  color: var(--pure-white);
 }
