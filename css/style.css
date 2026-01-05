@@ -148,7 +148,7 @@ body::before {
   padding: 25px 0;
 }
 
-./* ==========================================================================
+/* ==========================================================================
    AUTOMATIC SLIDER (FIXED)
    ========================================================================== */
 .slider-wrapper {
@@ -193,7 +193,7 @@ body::before {
 .hero {
   min-height: 100vh;
   /* Using a high-quality temple placeholder from Unsplash */
-  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(12, 12, 17, 0.856)), 
               url('https://images.unsplash.com/photo-1544011501-2982d0d75a28?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
   display: flex;
   flex-direction: column;
@@ -251,7 +251,7 @@ body::before {
   -webkit-text-fill-color: transparent;
 }
 
-.sanskrit-quote {
+.sanskrit-Hero {
   background: linear-gradient(135deg, var(--sacred-gold) 0%, var(--temple-orange) 100%);
   color: #7C2D12;
   font-size: 2rem;
@@ -260,6 +260,79 @@ body::before {
   text-align: center;
   margin: 2rem auto;
   max-width: 800px;
+}
+.sanskrit-hero {
+    /* Layout & Spacing */
+    margin: 50px auto;
+    padding: 30px 60px;
+    text-align: center;
+    max-width: fit-content;
+    
+    /* Typography */
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-family: 'Georgia', serif;
+    
+    /* Premium Gold Gradient Text */
+    background: linear-gradient(to bottom, #FFD700 22%, #FF9933 50%, #B8860B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Spiritual Glow Animation */
+    filter: drop-shadow(0 0 10px rgba(255, 153, 51, 0.3));
+    /* animation: divineAura 3s ease-in-out infinite alternate; */
+    
+    /* Borders & Positioning */
+    border-top: 3px double #FF9933;
+    border-bottom: 3px double #FF9933;
+    position: relative;
+    letter-spacing: 2px;
+}
+
+/* Side Decorative Symbols using Pseudo-elements */
+.sanskrit-hero::before {
+    content: "✦";
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-text-fill-color: #FF9933;
+    font-size: 1.5rem;
+}
+
+.sanskrit-hero::after {
+    content: "✦";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-text-fill-color: #FF9933;
+    font-size: 1.5rem;
+}
+
+
+/* Subtle Pulsing Aura Animation */
+@keyframes divineAura {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px rgba(255, 153, 51, 0.4));
+    }
+    100% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 20px rgba(255, 153, 51, 0.8));
+    }
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+    .sanskrit-hero {
+        font-size: 1.8rem;
+        padding: 20px 40px;
+        margin: 30px auto;
+    }
+    .sanskrit-hero::before, .sanskrit-hero::after {
+        display: none; /* Hide symbols on very small screens to save space */
+    }
 }
 
 /* ==========================================================================
@@ -372,3 +445,115 @@ body::before {
     display: flex;
   }
 }
+
+
+
+/* Footer Container */
+.footer {
+  background-color: #111111ea; /* Dark Charcoal */
+  color: #ffffff;
+  padding: 60px 0 20px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+/* Individual Columns */
+.footer-section {
+  flex: 1;
+  min-width: 200px; /* Minimum width before wrapping */
+  margin-bottom: 30px;
+  padding: 0 15px;
+}
+
+/* Typography */
+.footer-section h3 {
+  color: #FF9933; /* Saffron */
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.footer-section h4 {
+  color: #FF9933;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Underline decoration for titles */
+.footer-section h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 30px;
+  height: 2px;
+  background-color: #FF9933;
+}
+
+.footer-section p {
+  line-height: 1.6;
+  color: #cccccc;
+  font-size: 0.95rem;
+}
+
+/* Links Styling */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #FF9933;
+  padding-left: 5px; /* Subtle movement on hover */
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 40px;
+  border-top: 1px solid #333;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* RESPONSIVE DESIGN: Mobile & Tablet */
+@media (max-width: 768px) {
+  .footer-section {
+    flex: 0 0 50%; /* Two columns on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-section {
+    flex: 0 0 100%; /* Single column on mobile */
+    text-align: center;
+  }
+  
+  .footer-section h4::after {
+    left: 50%;
+    transform: translateX(-50%); /* Centers the underline on mobile */
+  }
+}
+
+
+
+/* style for the  about sanatana dharm section */

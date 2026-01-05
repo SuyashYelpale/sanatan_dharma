@@ -339,8 +339,8 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="ourprograms.html">Our Programs</a></li>
       <li><a href="aboutus.html">About Us</a></li>
-      <li><a href="contact.html" class="active-link">Contact</a></li>
-         <li><a href="./Participate_seva.html">Participate</a></li>
+      <li><a href="contact.html">Contact</a></li>
+         <li><a href="./Participate_seva.html" class="active-link">Participate</a></li>
       <li><a href="shop.html">Shop</a></li>
       <li><a href="">Gallery</a></li>
       <li><a href="donation.html" class="btn-donate-nav">Donate Now ॐ</a></li>
@@ -359,7 +359,7 @@
           ✅ Message sent successfully! We will contact you soon. 🙏
         </div>
         
-        <h2 class="section-title">Contact & Branches</h2>
+        <h2 class="section-title">Contact</h2>
         <p class="contact-text">
           Connect with our branches across India or reach our headquarters for donations, partnerships, and volunteering opportunities.
         </p>
@@ -367,84 +367,63 @@
         <div class="contact-grid">
           <!-- First Div: Branches - PERFECTLY FIXED -->
           <div class="branches-section">
-            <h3 class="branches-title"> Our Branches</h3>
-            <div class="branch-item">
-              <div class="branch-name">🏛️ Pune (Headquarters)</div>
-              <div class="branch-details">
-                Pune, Maharashtra, India<br>
-                Phone: +91-92848-34186<br>
-                Active programs: Daily Satsang, Youth Training, Seva Projects
-              </div>
-            </div>
-            
-            <div class="branch-item">
-              <div class="branch-name">🌟 Mumbai</div>
-              <div class="branch-details">
-                Prabhadevi, Mumbai, Maharashtra<br>
-                Phone: +91-XXXXXXXXXX<br>
-                Focus: Urban Dharma Propagation, Temple Activities
-              </div>
-            </div>
-            
-            <div class="branch-item">
-              <div class="branch-name">📍 Delhi</div>
-              <div class="branch-details">
-                Delhi NCR Region<br>
-                Phone: +91-XXXXXXXXXX<br>
-                Programs: Veda Classes, Cultural Events
-              </div>
-            </div>
-            
-            <div class="branch-item">
-              <div class="branch-name">🌺 Chennai</div>
-              <div class="branch-details">
-                Chennai, Tamil Nadu<br>
-                Phone: +91-XXXXXXXXXX<br>
-                Activities: Sanskrit Classes, Festival Celebrations
-              </div>
-            </div>
-            
-            <div class="branch-item">
-              <div class="branch-name">🕉️ Hyderabad</div>
-              <div class="branch-details">
-                Hyderabad, Telangana<br>
-                Phone: +91-XXXXXXXXXX<br>
-                Youth Wing: Swami Vivekananda Study Circles
-              </div>
-            </div>
-          </div>
-
+          
           <!-- Second Div: Contact Form & Info - PERFECTLY FIXED -->
           <div class="contact-info-section">
-            <h3 class="contact-title"> Get In Touch</h3>
+            <h3 class="contact-title">Prime Member</h3>
             
             <div class="contact-details">
-              <p><strong>📧 Email:</strong> seeonlysuyash@gmail.com</p>
-              <p><strong>📞 Phone:</strong> +91-92848-34186</p>
+              <p><strong>📧 Email:</strong> sanatandharmvishvakalyan@gmail.com</p>
+              <p><strong>📞 Phone:</strong> +91 99227 48816</p>
               <p><strong>📍 Address:</strong> Pune, Maharashtra, India</p>
               <p><strong>⏰ Office Hours:</strong> Mon-Sat: 9AM-7PM IST</p>
             </div>
 
             <!-- Contact Form -->
-            <form class="contact-form"
-                  action="https://formsubmit.co/seeonlysuyash@gmail.com"
-                  method="POST">
-              
-              <!-- FormSubmit settings -->
-              <input type="hidden" name="_subject" value="New Contact from Sanatan Dharma NGO - Branch Inquiry" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://127.0.0.1:5500/contact.html?success=1" />
-              
-              <input type="text" name="name" placeholder="Your Full Name *" required />
-              <input type="email" name="email" placeholder="Your Email Address *" required />
-              <textarea rows="5" name="message" placeholder="Your Message or Branch Inquiry *" required></textarea>
-              <button type="submit" class="btn-donate">Send Message ॐ</button>
-            </form>
+<form id="contactForm" class="contact-form">
+  <input type="text" name="name" placeholder="Your Full Name *" required />
+  <input type="email" name="email" placeholder="Your Email Address *" required />
+  <textarea rows="5" name="message" placeholder="Your Message or Branch Inquiry *" required></textarea>
+  <button type="submit" class="btn-donate">Send Message ॐ</button>
+</form>
+
+<!-- Success message -->
+<div id="successMsg" class="success-message" style="display:none;">
+  ✅ Message sent successfully! We will contact you soon. 🙏
+</div>
+
           </div>
         </div>
       </div>
     </section>
   </main>
+<!-- Include EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // Initialize EmailJS
+  (function(){
+    emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+  })();
+
+  const contactForm = document.getElementById('contactForm');
+  const successMsg = document.getElementById('successMsg');
+
+  contactForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submit
+
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+      .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        successMsg.style.display = 'block'; // Show success message
+        contactForm.reset(); // Clear form fields
+      }, function(error) {
+        console.log('FAILED...', error);
+        alert('Oops! Something went wrong. Please try again.');
+      });
+  });
+</script>
+
+
 
   <script src="js/script.js"></script>
   <script>

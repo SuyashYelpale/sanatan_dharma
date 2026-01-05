@@ -1,0 +1,316 @@
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card */
+.project-card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1.2px solid #222;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Hover */
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: #ff9933;
+  box-shadow: 0 18px 40px rgba(255, 153, 51, 0.28);
+}
+
+/* Image Wrapper (HEIGHT REDUCED) */
+.project-card .img-wrapper {
+  height: 140px; /* 🔽 reduced from 170px */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Image */
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* Image Zoom on Hover */
+.project-card:hover img {
+  transform: scale(1.12);
+}
+
+/* Title */
+.project-card h3 {
+  padding: 14px 18px 6px;
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #111;
+}
+
+/* Accent Dot */
+.project-card h3::before {
+  content: "●";
+  color: #ff9933;
+  margin-right: 8px;
+  font-size: 0.7rem;
+}
+
+/* Description */
+.project-card p {
+  padding: 0 18px 18px;
+  margin: 0;
+  font-size: 0.92rem;
+  color: #444;
+  line-height: 1.45;
+  flex-grow: 1;
+}
+
+/* Gradient Border Effect */
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #ff9933, #ff6600);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.project-card:hover::after {
+  opacity: 0.15;
+}
+
+
+/* Section base */
+.events-section {
+  padding: 80px 20px;
+  background: #faf8f5; /* soft spiritual background */
+  font-family: 'Poppins', sans-serif;
+}
+
+.events-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Title & intro */
+.section-title {
+  font-size: 36px;
+  font-weight: 600;
+  color: #3b2f2f;
+  margin-bottom: 10px;
+}
+
+.section-intro {
+  font-size: 16px;
+  color: #6b5e5e;
+  max-width: 700px;
+  margin: 0 auto 50px;
+}
+
+/* Grid layout */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Card design */
+.event-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: left;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-top: 5px solid #c59d5f; /* spiritual gold accent */
+}
+
+/* Hover effect */
+.event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Card heading */
+.event-card h3 {
+  font-size: 22px;
+  color: #3b2f2f;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* List styling */
+.event-card ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.event-card ul li {
+  font-size: 15px;
+  color: #5a4a4a;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 28px;
+  }
+
+  .event-card {
+    padding: 25px;
+  }
+}
+
+
+/* ===== COMMON SECTION STYLES ===== */
+.section {
+  padding: 80px 20px;
+  background: #faf8f5;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 600;
+  color: #3b2f2f;
+  margin-bottom: 10px;
+}
+
+.section-intro {
+  font-size: 16px;
+  color: #6b5e5e;
+  max-width: 750px;
+  margin: 0 auto 50px;
+  line-height: 1.6;
+}
+
+/* ===== GRID SYSTEM (Reusable) ===== */
+.events-grid,
+.initiatives-grid,
+.shop-grid,
+.puja-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* ===== CARD BASE STYLE ===== */
+.event-card,
+.initiative-card,
+.shop-card,
+.puja-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+  text-align: left;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s ease;
+  border-top: 5px solid #c59d5f; /* Spiritual gold */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover animation */
+.event-card:hover,
+.initiative-card:hover,
+.shop-card:hover,
+.puja-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+/* Decorative subtle glow */
+.event-card::before,
+.initiative-card::before,
+.shop-card::before,
+.puja-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(197, 157, 95, 0.15),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.event-card:hover::before,
+.initiative-card:hover::before,
+.shop-card:hover::before,
+.puja-card:hover::before {
+  opacity: 1;
+}
+
+/* Card heading */
+.event-card h3,
+.initiative-card h3,
+.shop-card h3,
+.puja-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #3b2f2f;
+  margin-bottom: 15px;
+}
+
+/* List styles */
+.event-card ul,
+.initiative-card ul,
+.shop-card ul,
+.puja-card ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.event-card ul li,
+.initiative-card ul li,
+.shop-card ul li,
+.puja-card ul li {
+  font-size: 15px;
+  color: #5a4a4a;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* ===== MOBILE OPTIMIZATION ===== */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 15px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .section-intro {
+    font-size: 15px;
+  }
+
+  .event-card,
+  .initiative-card,
+  .shop-card,
+  .puja-card {
+    padding: 25px;
+  }
+}
